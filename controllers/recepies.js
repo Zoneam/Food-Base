@@ -7,7 +7,8 @@ module.exports = {
     searchRecepies,
     viewRecepies,
     saveRecepie,
-    deleteRecepie
+    deleteRecepie,
+    myrecepies
   };
 
 
@@ -41,6 +42,12 @@ function saveRecepie(req, res) {
 
 function deleteRecepie({params: {id}},res) {
     Recepie.deleteOne({_id: id},function(err){
-      res.redirect('/recepies');
+      res.redirect('myrecepies');
     });
+  }
+
+  function myrecepies(req,res) {
+    Recepie.find({user: req.user.id},function(err, recepies){
+        res.render('recepies/myrecepies', { recepies })
+    })
   }
