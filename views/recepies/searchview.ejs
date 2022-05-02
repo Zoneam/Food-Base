@@ -32,6 +32,18 @@
         </div>
       </div>
     </nav>
+<!-- ------------------ -->
+<% foundRecepies.forEach(recipe=>{ %>
+    <div class="card" style="width: 18rem;">
+        <img src="<%= recipe.recipe.image %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= recipe.recipe.label %></h5>
+          <p class="card-text">content.</p>
+          <a href="<%= recipe.recipe.url %>" class="btn btn-primary">Open</a>
+        </div>
+      </div>
+<% }) %>
+
 
   </body>
 </html>

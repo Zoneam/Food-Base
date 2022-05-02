@@ -4,8 +4,7 @@ const recepiesCtrl = require('../controllers/recepies');
 const isLoggedIn = require('../config/auth');
 
 router.get('/', recepiesCtrl.viewRecepies);
-// router.get('/new',isLoggedIn, recepieCtrl.new);
-// router.get('/:id',isLoggedIn, recepieCtrl.show);
+router.get('/search', recepiesCtrl.searchRecepies);
 // router.post('/',isLoggedIn, recepieCtrl.create);
 
 module.exports = router;
