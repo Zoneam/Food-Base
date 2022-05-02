@@ -6,13 +6,15 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 module.exports = {
     searchRecepies,
     viewRecepies,
-    saveRecepie
+    saveRecepie,
+    deleteRecepie
   };
 
 
 function viewRecepies(req, res) {
-    console.log("RECEPIESSSSS")
-    res.render('index');
+    Recepie.find({}, (err,recepies)=>{
+        res.render('index',{ recepies });
+    })
 }
 
 function searchRecepies(req, res) {
@@ -36,3 +38,9 @@ function saveRecepie(req, res) {
       console.log("SAVED")
     });
 }
+
+function deleteRecepie({params: {id}},res) {
+    Recepie.deleteOne({_id: id},function(err){
+      res.redirect('/recepies');
+    });
+  }

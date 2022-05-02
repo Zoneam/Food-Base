@@ -12,3 +12,12 @@
 .card {
     margin: 15px;
 }
+
+.close-btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 26px;
+    padding: 0;
+    line-height: 19px;
+}
