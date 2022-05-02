@@ -1,7 +1,6 @@
 
 #recepies-wrapper {
     display: flex;
-    align-items: baseline;
     flex-wrap: wrap;
     margin: 0 auto;
     width: 80%;
@@ -11,6 +10,8 @@
 
 .card {
     margin: 15px;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.33); 
+box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.33);
 }
 
 .close-btn{
@@ -21,3 +22,32 @@
     padding: 0;
     line-height: 19px;
 }
+
+#badge-container {
+    display: flex;
+    /* padding: 1rem; */
+    width: 80%;
+    border: 2px solid #B8C0C2;
+    border-radius: .5rem;
+    margin: .5rem 0 2rem;
+  }
+  
+  .badge {
+    background-color: #B8C0C2;
+    padding: .5rem;
+    margin: 1rem;
+    border-radius: .3rem;
+    font-size: .8rem;
+    text-align: center;
+  }
+  
+  .login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 34px;
+  }
+  
+  .login img {
+    height: 30px;
+  }

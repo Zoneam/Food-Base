@@ -4,8 +4,8 @@ const recepiesCtrl = require('../controllers/recepies');
 const isLoggedIn = require('../config/auth');
 
 router.get('/', recepiesCtrl.viewRecepies);
-router.get('/search', recepiesCtrl.searchRecepies);
-router.post('/save', recepiesCtrl.saveRecepie);
-router.delete('/:id', recepiesCtrl.deleteRecepie)
+router.get('/search',isLoggedIn, recepiesCtrl.searchRecepies);
+router.post('/save',isLoggedIn, recepiesCtrl.saveRecepie);
+router.delete('/:id',isLoggedIn, recepiesCtrl.deleteRecepie)
 
 module.exports = router;

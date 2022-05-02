@@ -31,7 +31,7 @@ function searchRecepies(req, res) {
 }
 
 function saveRecepie(req, res) {
-    console.log("REQQQQQ",req.body)
+    req.body.user = req.user.id;
     const recepie = new Recepie(req.body);
     recepie.save(function(err) {
       if (err) return res.redirect('/recepies');

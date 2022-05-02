@@ -27,6 +27,9 @@ const recepieSchema = new Schema({
   comments: {
     type:[commentSchema]
   },
+  link: {
+    type: String
+  },
   user: {
     type: Schema.Types.ObjectId, ref: 'User'
   }
