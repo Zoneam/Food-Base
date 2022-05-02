@@ -5,6 +5,6 @@ const isLoggedIn = require('../config/auth');
 
 router.get('/', recepiesCtrl.viewRecepies);
 router.get('/search', recepiesCtrl.searchRecepies);
-// router.post('/',isLoggedIn, recepieCtrl.create);
+router.post('/save', recepiesCtrl.saveRecepie);
 
 module.exports = router;

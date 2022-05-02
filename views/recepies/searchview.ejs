@@ -33,17 +33,21 @@
       </div>
     </nav>
 <!-- ------------------ -->
+<div id="recepies-wrapper">
 <% foundRecepies.forEach(recipe=>{ %>
+    <form class="row g-3" action="/recepies/save" method="POST">
     <div class="card" style="width: 18rem;">
-        <img src="<%= recipe.recipe.image %>" class="card-img-top" alt="...">
+        <img src="<%= recipe.recipe.image %>" class="card-img-top" name="picture" alt="..."><input name="picture" value="<%= recipe.recipe.image %>" hidden="true">
         <div class="card-body">
-          <h5 class="card-title"><%= recipe.recipe.label %></h5>
-          <p class="card-text">content.</p>
-          <a href="<%= recipe.recipe.url %>" class="btn btn-primary">Open</a>
+          <h5 class="card-title" ><input name="name" value="<%= recipe.recipe.label %>" hidden="true"><%= recipe.recipe.label %></h5>
+          <p class="card-text" name="calories"><input name="calories" value="<%= recipe.recipe.calories %>" hidden="true"><%= Math.floor(recipe.recipe.calories) %> Calories</p>
+          <a href="<%= recipe.recipe.url %>" class="btn btn-primary" target="_blank" >Open</a>
+          <button type="submit"  class="btn btn-success">Save</button>
         </div>
       </div>
+    </form>
 <% }) %>
-
+</div>
 
   </body>
 </html>

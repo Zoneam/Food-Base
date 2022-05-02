@@ -5,7 +5,8 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 
 module.exports = {
     searchRecepies,
-    viewRecepies
+    viewRecepies,
+    saveRecepie
   };
 
 
@@ -25,6 +26,13 @@ function searchRecepies(req, res) {
         console.log(foundRecepies)
         res.render('recepies/searchview', { foundRecepies });
     })
-    
-    
+}
+
+function saveRecepie(req, res) {
+    console.log("REQQQQQ",req.body)
+    const recepie = new Recepie(req.body);
+    recepie.save(function(err) {
+      if (err) return res.redirect('/recepies');
+      console.log("SAVED")
+    });
 }

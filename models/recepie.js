@@ -18,21 +18,11 @@ const recepieSchema = new Schema({
     type: String,
     required: true
   },
-  description: {
-    type: String,
-    required: true
-  },
-  ingredients: {
-    type: [String]
-  },
   picture: {
     type: String
   },
   calories: {
     type:Number
-  },
-  prepareTime: {
-    type: String,
   },
   comments: {
     type:[commentSchema]
