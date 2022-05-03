@@ -11,7 +11,7 @@ require('./config/database');
 require('./config/passport');
 var methodOverride = require('method-override');
 var indexRouter = require('./routes/index');
-var recepiesRouter = require('./routes/recepies');
+var recipesRouter = require('./routes/recipes');
 var likesRouter = require('./routes/likes');
 
 var app = express();
@@ -39,7 +39,7 @@ app.use(function (req, res, next) {
   next();
 });
 app.use('/', indexRouter);
-app.use('/recepies', recepiesRouter);
+app.use('/recipes', recipesRouter);
 app.use('/', likesRouter);
 
 // catch 404 and forward to error handler

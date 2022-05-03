@@ -13,7 +13,7 @@ const likeSchema = new Schema({
   timestamps: true
 });
 
-const recepieSchema = new Schema({
+const recipeSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -37,4 +37,4 @@ const recepieSchema = new Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('Recepie', recepieSchema);
+module.exports = mongoose.model('Recipe', recipeSchema);
