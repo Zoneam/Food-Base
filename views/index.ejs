@@ -3,15 +3,22 @@
     <div id="recipes-wrapper">
       <% recipes.forEach(recipe=>{ %>
         <div class="card" style="width: 18rem;">
-
-            <form class="row g-3" action="/recipes/save" method="POST">
+            <form class="row g-3 card-form" action="/recipes/save" method="POST">
               <a href="<%= recipe.link %>" target="_blank" ><img src="<%= recipe.picture %>" class="card-img-top" name="picture" alt="..."></a><input name="picture" value="<%= recipe.picture %>" hidden="true">
               <div class="card-body">
                 <div class="review-user">
                   <img src="<%= recipe.user.avatar %>"><span><%= recipe.user.name %></span>
+
                 </div>
                 <h5 class="card-title" ><input name="name" value="<%= recipe.name %>" hidden="true"><%= recipe.name %></h5>
                 <p class="card-text" name="calories"><input name="calories" value="<%= recipe.calories %>" hidden="true"><%= Math.floor(recipe.calories) %> Calories</p>
+              <div class="like-container">
+
+                <span class="fa-layers fa-fw" >
+                  <i class="fa-inverse fa-solid fa-heart fa-xl heart-icon" style="color:red"><span>12</span></i>
+                </span>
+
+            </div>
               </div>
             </div>
           </form>
