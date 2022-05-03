@@ -23,5 +23,6 @@ Like.findOne({recipeId: req.params.id}, function(err,found){
         newLike.save();          
     }
 })
+res.redirect('/recipes')
 
 }

@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 
 const likeSchema = new Schema({
-  recipeId: String,
+  recipeId: {
+    type: Schema.Types.ObjectId, ref: 'Recipe'
+  },
   likes: {
     type: Number,
     default: 0,
@@ -41,7 +43,7 @@ const recipeSchema = new Schema({
   timestamps: true
 });
 
-const Recipe = mongoose.model('recipe', recipeSchema);
+const Recipe = mongoose.model('Recipe', recipeSchema);
 
 const Like = mongoose.model('Like', likeSchema);
 

@@ -1,4 +1,4 @@
-const { Recipe }= require('../models/recipe');
+const { Recipe, Like }= require('../models/recipe');
 const User = require('../models/user');
 const API_ID = process.env.API_ID;
 const API_KEY = process.env.API_KEY;
@@ -13,11 +13,24 @@ module.exports = {
   };
 
 function viewRecipes(req, res) {
+      //  Like.find({})
+      // .populate('recipeId')
+      // .exec(function (err,likes){
+      //   
+      //   console.log('Likes',likes);
+      // })
+
+
     Recipe.find({})
     .populate('user')
+    .populate('like')
     .exec(function (err,recipes){
+
+      console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++',recipes);
+
       res.render('index',{ recipes });
     })
+
 }
 
 function searchRecipes(req, res) {
