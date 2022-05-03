@@ -1,6 +1,7 @@
 const Recepie = require('../models/recepie');
-const API_ID = "90925505";
-const API_KEY = "9ff41c36cf0a827671bf6c51b5490f51";
+const User = require('../models/user');
+const API_ID = process.env.API_ID;
+const API_KEY = process.env.API_KEY;
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 module.exports = {
@@ -13,9 +14,14 @@ module.exports = {
 
 
 function viewRecepies(req, res) {
-    Recepie.find({}, (err,recepies)=>{
-        res.render('index',{ recepies });
+
+    Recepie.find({})
+    .populate('user')
+    .exec(function (err,recepies){
+      console.log(recepies)
+      res.render('index',{ recepies });
     })
+
 }
 
 function searchRecepies(req, res) {
@@ -33,10 +39,12 @@ function searchRecepies(req, res) {
 
 function saveRecepie(req, res) {
     req.body.user = req.user.id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
+
     const recepie = new Recepie(req.body);
     recepie.save(function(err) {
       if (err) return res.redirect('/recepies');
-      console.log("SAVED")
     });
 }
 

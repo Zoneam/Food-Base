@@ -51,3 +51,24 @@ box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.33);
   .login img {
     height: 30px;
   }
+
+  .review-user {
+    display: flex;
+    position: relative;
+    top: -33px;
+    left:-7px;
+    align-items: center;
+
+    margin : 10px;
+  }
+  .review-user span {
+  padding-left: 10px;
+  }
+  
+  .review-user img {
+    border-radius: 50%;
+    height: 40px;
+    -webkit-box-shadow: 0px 0px 5px 6px rgba(44,202,24,0.42); 
+    box-shadow: 0px 0px 5px 6px rgba(44,202,24,0.42);
+
+  }

@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const commentSchema = new Schema({
-  comment: {type: String, required: true},
+const likeSchema = new Schema({
+  like: {type: Number, },
   user: {
     type: Schema.Types.ObjectId,
      ref: 'User'
@@ -24,8 +24,8 @@ const recepieSchema = new Schema({
   calories: {
     type:Number
   },
-  comments: {
-    type:[commentSchema]
+  like: {
+    type:[likeSchema]
   },
   link: {
     type: String
