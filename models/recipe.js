@@ -1,17 +1,21 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const likeSchema = new Schema({
-  like: {type: Number, },
-  user: {
-    type: Schema.Types.ObjectId,
-     ref: 'User'
+  recipeId: String,
+  likes: {
+    type: Number,
+    default: 0,
     },
-  userName: String,
-  userAvatar: String
+  users: Array
 }, {
   timestamps: true
 });
+
+// likeSchema.methods.likesCount = () => {
+//   return this.users.length;
+// }
 
 const recipeSchema = new Schema({
   name: {
@@ -37,4 +41,13 @@ const recipeSchema = new Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('Recipe', recipeSchema);
+const Recipe = mongoose.model('recipe', recipeSchema);
+
+const Like = mongoose.model('Like', likeSchema);
+
+module.exports = { Recipe, Like }
+
+
+// Something.findOne({ _id: id }).exec(function (error, something) {
+//   something.changedName();
+// });

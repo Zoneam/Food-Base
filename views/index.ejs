@@ -14,9 +14,11 @@
                 <p class="card-text" name="calories"><input name="calories" value="<%= recipe.calories %>" hidden="true"><%= Math.floor(recipe.calories) %> Calories</p>
               <div class="like-container">
 
-                <span class="fa-layers fa-fw" >
-                  <i class="fa-inverse fa-solid fa-heart fa-xl heart-icon" style="color:red"><span>12</span></i>
-                </span>
+                <a href="/recipe/<%= recipe.id %>/like">
+                    <span class="fa-layers fa-fw" >
+                      <i class="fa-inverse fa-solid fa-heart fa-xl heart-icon" style="color:red"><span>12</span></i>
+                    </span>
+                </a>
 
             </div>
               </div>

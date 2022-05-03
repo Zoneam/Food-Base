@@ -1,4 +1,4 @@
-const Recipe = require('../models/recipe');
+const { Recipe }= require('../models/recipe');
 const User = require('../models/user');
 const API_ID = process.env.API_ID;
 const API_KEY = process.env.API_KEY;
@@ -35,7 +35,9 @@ function saveRecipe(req, res) {
     req.body.user = req.user.id;
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
+
     const recipe = new Recipe(req.body);
+    
     recipe.save(function(err) {
       if (err) return res.redirect('/recipes');
     });
