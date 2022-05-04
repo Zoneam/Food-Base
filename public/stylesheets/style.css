@@ -165,3 +165,11 @@
     .my-card-title{
       margin-top:8px;
     }
+
+    .heart-icon:hover {
+      font-size: 2.5em;
+    }
+
+    .my-heart-icon{
+      cursor:default;
+    }
