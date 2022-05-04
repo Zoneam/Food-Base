@@ -20,7 +20,6 @@ function viewRecipes(req, res) {
     .populate('user')
     .populate('like')
     .exec(function (err,recipes){
-      console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++',recipes);
       res.render('index',{ recipes });
     })
 
@@ -32,7 +31,6 @@ function searchRecipes(req, res) {
     .then(res => res.json())
     .then(recipes => {
         foundRecipes = recipes.hits;
-        console.log(foundRecipes)
         res.render('recipes/searchview', { foundRecipes });
     })
 }
@@ -58,8 +56,10 @@ function deleteRecipe({params: {id}},res) {
   }
 
   function myRecipes(req,res) {
-    Recipe.find({user: req.user.id},function(err, recipes){
-        res.render('recipes/myrecipes', { recipes })
+    Recipe.find({user: req.user.id})
+    .populate('like')
+    .exec(function (err,recipes){
+      res.render('recipes/myrecipes', { recipes })
     })
   }
 

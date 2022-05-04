@@ -99,7 +99,9 @@
     }
 
     .card-title {
-  
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
       margin: 0px 9px 0 16px;
     }
 
@@ -142,4 +144,10 @@
 
     .my-cards    {
     cursor:pointer;
+    }
+
+    span {
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
     }
