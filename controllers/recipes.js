@@ -19,9 +19,7 @@ function viewRecipes(req, res) {
     .populate('user')
     .populate('like')
     .exec(function (err,recipes){
-
       console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++',recipes);
-
       res.render('index',{ recipes });
     })
 
