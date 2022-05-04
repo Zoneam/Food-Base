@@ -8,17 +8,14 @@
       <input name="link" value="<%= recipe.recipe.url %>" hidden="true">
         <div class="card-body">
           <h5 class="card-title" ><input name="name" value="<%= recipe.recipe.label %>" hidden="true"><%= recipe.recipe.label %></h5>
-
           <% if(user){ %>
             <button type="submit"  class="btn btn-success save-btn">Save</button> 
           <% } %>
         </div>
         <div class="calories-wrapper">   <span class="p-text" name="calories"><input name="calories" value="<%= recipe.recipe.calories %>" hidden="true"><%= Math.floor(recipe.recipe.calories) %> Cal</span></div>
-
       </div>
     </form>
 <% }) %>
 </div>
-
   </body>
 </html>
