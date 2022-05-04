@@ -1,4 +1,5 @@
-const { Like }  = require('../models/recipe');
+const  Recipe   = require('../models/recipe');
+const  Like   = require('../models/like');
 
 module.exports = {
     like,
@@ -6,22 +7,16 @@ module.exports = {
  
 function like(req, res) {
 
-Like.findOne({recipeId: req.params.id}, function(err,found){
-    if(found){
+Like.findOne({recipe: req.params.id}, function(err,found){
+
         if(!found.users.includes(req.user.id)){
             found.users.push(req.user.id);
             found.save();
+
         } else {
             found.users.splice(found.users.indexOf(req.user.id),1)
             found.save();
         }
-    }
-    else {
-        const newLike = new Like();
-        newLike.recipeId = req.params.id;
-        newLike.users.push(req.user.id)
-        newLike.save();          
-    }
 })
 res.redirect('/recipes')
 

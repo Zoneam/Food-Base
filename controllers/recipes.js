@@ -1,5 +1,7 @@
-const { Recipe, Like }= require('../models/recipe');
+const Recipe = require('../models/recipe');
+const Like = require('../models/like');
 const User = require('../models/user');
+
 const API_ID = process.env.API_ID;
 const API_KEY = process.env.API_KEY;
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
@@ -13,14 +15,6 @@ module.exports = {
   };
 
 function viewRecipes(req, res) {
-      //  Like.find({})
-      // .populate('recipeId')
-      // .exec(function (err,likes){
-      //   
-      //   console.log('Likes',likes);
-      // })
-
-
     Recipe.find({})
     .populate('user')
     .populate('like')
@@ -44,14 +38,16 @@ function searchRecipes(req, res) {
     })
 }
 
-function saveRecipe(req, res) {
+async function saveRecipe(req, res) {
     req.body.user = req.user.id;
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
-
+    const newLike = new Like();
+    req.body.like = newLike
     const recipe = new Recipe(req.body);
-    
     recipe.save(function(err) {
+      newLike.recipe = recipe._id;
+      newLike.save()
       if (err) return res.redirect('/recipes');
     });
 }
