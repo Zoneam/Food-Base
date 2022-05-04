@@ -8,5 +8,7 @@ router.get('/search', recipesCtrl.searchRecipes);
 router.post('/save',isLoggedIn, recipesCtrl.saveRecipe);
 router.delete('/:id',isLoggedIn, recipesCtrl.deleteRecipe)
 router.get('/myrecipes', isLoggedIn, recipesCtrl.myRecipes);
+router.post('/myrecipes/:id/save', isLoggedIn, recipesCtrl.updateRecepie)
 
 module.exports = router;
+

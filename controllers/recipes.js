@@ -11,7 +11,8 @@ module.exports = {
     viewRecipes,
     saveRecipe,
     deleteRecipe,
-    myRecipes
+    myRecipes,
+    updateRecepie
   };
 
 function viewRecipes(req, res) {
@@ -60,4 +61,10 @@ function deleteRecipe({params: {id}},res) {
     Recipe.find({user: req.user.id},function(err, recipes){
         res.render('recipes/myrecipes', { recipes })
     })
+  }
+
+  function updateRecepie(req,res){
+    Recipe.findOneAndUpdate({_id: req.params.id}, { name:req.body.name },function(err, recipes){
+      res.redirect('/recipes/myrecipes');
+  })
   }

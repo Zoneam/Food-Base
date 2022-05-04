@@ -86,6 +86,7 @@
     position: absolute;
     bottom: 10px;
     right: 10px;
+    cursor:pointer;
 
   }
 
@@ -99,7 +100,7 @@
 
     .card-title {
   
-      margin: 0px 4px 0 16px;
+      margin: 0px 9px 0 16px;
     }
 
     .calories-wrapper{
@@ -128,4 +129,17 @@
 
     .save-btn{
       margin-top:15px;
+    }
+
+    .my-card-body{
+      justify-content: center;
+  
+    }
+
+    .my-card-div{
+      height:400px;
+    }
+
+    .my-cards    {
+    cursor:pointer;
     }
