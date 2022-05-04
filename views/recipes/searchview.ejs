@@ -6,10 +6,12 @@
     <div class="card form-div" style="width: 18rem;">
       <a href="<%= recipe.recipe.url %>" target="_blank" ><img src="<%= recipe.recipe.image %>" class="card-img-top" name="picture" alt="..."></a><input name="picture" value="<%= recipe.recipe.image %>" hidden="true">
       <input name="link" value="<%= recipe.recipe.url %>" hidden="true">
-        <div class="card-body">
+        <div class="card-body search-card-body">
           <h5 class="card-title" ><input name="name" value="<%= recipe.recipe.label %>" hidden="true"><%= recipe.recipe.label %></h5>
           <% if(user){ %>
-            <button type="submit"  class="btn btn-success save-btn">Save</button> 
+            <div class="btn-div">
+            <button type="submit"  class="btn btn-success save-btn" >Save</button> 
+          </div>
           <% } %>
         </div>
         <div class="calories-wrapper">   <span class="p-text" name="calories"><input name="calories" value="<%= recipe.recipe.calories %>" hidden="true"><%= Math.floor(recipe.recipe.calories) %> Cal</span></div>
@@ -17,5 +19,23 @@
     </form>
 <% }) %>
 </div>
+
+
+
+<script>
+const saveBtn = document.querySelectorAll(".save-btn");
+  
+  if(saveBtn.length){
+      saveBtn.forEach(el=>{
+              el.addEventListener("click", (e) => {
+              e.target.disabled = true;
+              e.target.innerHTML  = 'Saved'
+          })
+      })
+  }
+    
+  
+  </script>
+
   </body>
 </html>

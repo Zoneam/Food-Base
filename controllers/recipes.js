@@ -22,7 +22,6 @@ function viewRecipes(req, res) {
     .exec(function (err,recipes){
       res.render('index',{ recipes });
     })
-
 }
 
 function searchRecipes(req, res) {

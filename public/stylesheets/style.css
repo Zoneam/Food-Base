@@ -105,7 +105,7 @@
       margin: 0px 9px 0 16px;
     }
 
-    .calories-wrapper{
+    .calories-wrapper {
       position: absolute;
       top: 6px;
       left: -21px;
@@ -113,12 +113,12 @@
       width: auto;
       height: 40px;
       border-radius: 50%;
-      background-color: #59df59;
+      background-color: #d9ff00;
       display: flex;
       align-content: center;
       align-items: center;
-      -webkit-box-shadow: 0px 0px 6px 4px rgb(64 255 0 / 59%);
-      box-shadow: 0px 0px 6px 4px rgb(64 255 0 / 59%);
+      -webkit-box-shadow: 0px 0px 6px 4px rgb(80 255 0 / 81%);
+      box-shadow: 0px 0px 6px 4px rgb(80 255 0 / 81%);
     }
 
     .form-div {
@@ -134,6 +134,8 @@
     }
 
     .my-card-body{
+      display: block;
+      flex-direction: row;
       justify-content: center;
   
     }
@@ -150,4 +152,16 @@
       user-select: none;
       -moz-user-select: none;
       -webkit-user-select: none;
+    }
+
+    .search-card-body {
+      justify-content: space-between;
+    }
+
+    .btn-div {
+      align-self: center;
+    }
+
+    .my-card-title{
+      margin-top:8px;
     }

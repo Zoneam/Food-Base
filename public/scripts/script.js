@@ -1,4 +1,4 @@
-const myLinks = document.querySelectorAll(".my-cards")
+const myLinks = document.querySelectorAll(".my-cards");
   
 if(myLinks.length){
     myLinks.forEach(el=>{

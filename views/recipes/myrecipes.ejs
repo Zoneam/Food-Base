@@ -9,13 +9,13 @@
        </form>
               <a href="<%= recipe.link %>" target="_blank" ><img src="<%= recipe.picture %>" class="card-img-top" alt="..."></a><input name="picture" value="<%= recipe.picture %>" hidden="true">
               <div class="card-body my-card-body">
-                  <h5 class="card-title " >
+                  <h5 class="card-title my-card-title" >
                     <div hidden="true">
                       <form action="/recipes/myrecipes/<%= recipe.id %>/save" class="update-form" method="POST">
                         <div class="input-group mb-3">
                           <input type="text" name="name" class="form-control" value="<%= recipe.name %>"  id="<%= recipe.id %>">
                           <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="submit">Save</button>
+                            <button class="btn btn-success" type="submit">Save</button>
                           </div>
                         </div>
                     </div>
@@ -24,18 +24,11 @@
                     </span>
                   </form>
                   </h5>
-
-
                   <div class="like-container">
-                   
                         <span class="fa-layers fa-fw" >
                           <i class="fa-solid fa-heart fa-2xl heart-icon" style="color:red">  <span><%= recipe.like.users.length %></span></i>
                         </span>
-                   
                 </div>
-
-
-
               </div>
                 <div class="calories-wrapper">   <span class="p-text" name="calories"><input name="calories" value="<%= recipe.calories %>" hidden="true"><%= Math.floor(recipe.calories) %> Cal</span></div>
             </div>
