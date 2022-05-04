@@ -2,17 +2,19 @@
 <!-------------------- -->
 <div id="recipes-wrapper">
 <% foundRecipes.forEach(recipe=>{ %>
-    <form class="row g-3" action="/recipes/save" method="POST">
-    <div class="card" style="width: 18rem;">
+    <form class="row g-1 " action="/recipes/save" method="POST">
+    <div class="card form-div" style="width: 18rem;">
       <a href="<%= recipe.recipe.url %>" target="_blank" ><img src="<%= recipe.recipe.image %>" class="card-img-top" name="picture" alt="..."></a><input name="picture" value="<%= recipe.recipe.image %>" hidden="true">
       <input name="link" value="<%= recipe.recipe.url %>" hidden="true">
         <div class="card-body">
           <h5 class="card-title" ><input name="name" value="<%= recipe.recipe.label %>" hidden="true"><%= recipe.recipe.label %></h5>
-          <p class="card-text" name="calories"><input name="calories" value="<%= recipe.recipe.calories %>" hidden="true"><%= Math.floor(recipe.recipe.calories) %> Calories</p>
+
           <% if(user){ %>
-            <button type="submit"  class="btn btn-success">Save</button> 
+            <button type="submit"  class="btn btn-success save-btn">Save</button> 
           <% } %>
         </div>
+        <div class="calories-wrapper">   <span class="p-text" name="calories"><input name="calories" value="<%= recipe.recipe.calories %>" hidden="true"><%= Math.floor(recipe.recipe.calories) %> Cal</span></div>
+
       </div>
     </form>
 <% }) %>
