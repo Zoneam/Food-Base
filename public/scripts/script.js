@@ -9,3 +9,21 @@ if(myLinks.length){
     })
 }
   
+
+// const saveBtn = document.querySelectorAll(".save-btn");
+  
+//   if(saveBtn.length){
+//       saveBtn.forEach(el=>{
+//               el.addEventListener("click", (e) => {
+             
+              
+//               e.target.disabled = true;
+              
+//               e.target.innerHTML  = 'Saved';
+//                e.preventDefault();
+//               return false;  
+              
+//           })
+//       })
+//   }
+   

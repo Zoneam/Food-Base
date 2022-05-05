@@ -29,6 +29,7 @@ function searchRecipes(req, res) {
     fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${req.query.search}&app_id=${API_ID}&app_key=${API_KEY}&random=true`)
     .then(res => res.json())
     .then(recipes => {
+      console.log(recipes.hits[0].recipe.images.REGULAR);
         foundRecipes = recipes.hits;
         res.render('recipes/searchview', { foundRecipes });
     })
