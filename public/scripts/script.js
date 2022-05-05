@@ -8,6 +8,7 @@ if(myLinks.length){
     })
 }
   
+
 const saveBtn = document.querySelectorAll(".save-btn");
 if(saveBtn.length){
     saveBtn.forEach(el=>{
@@ -18,4 +19,3 @@ if(saveBtn.length){
           })
       })
 }
-   

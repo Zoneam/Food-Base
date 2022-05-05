@@ -2,9 +2,10 @@
 
     <div id="recipes-wrapper">
       <% recipes.forEach(recipe=>{ %>
+        
         <div class="card form-div card-long" style="width: 18rem;">
             <form class="row g-3 " action="/recipes/save" method="POST">
-              <a href="<%= recipe.link %>" target="_blank" ><img src="<%= recipe.picture %>" class="card-img-top" name="picture" alt="..."></a><input name="picture" value="<%= recipe.picture %>" hidden="true">
+              <a href="<%= recipe.link %>" target="_blank" ><img src=<%= (Math.abs(recipe.createdAt - new Date(dateNow)) / 36e5) < 1 ? recipe.picture : "./images/yummy.png" %> class="card-img-top" name="picture" alt="..."></a><input name="picture" value="<%= recipe.picture %>" hidden="true">
               <div class="card-body">
                 <div class="review-user">
                   <img src="<%= recipe.user.avatar %>"><span><%= recipe.user.name %></span>

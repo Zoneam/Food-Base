@@ -1,6 +1,7 @@
 const Recipe = require('../models/recipe');
 const Like = require('../models/like');
 const User = require('../models/user');
+const recipe = require('../models/recipe');
 
 const API_ID = process.env.API_ID;
 const API_KEY = process.env.API_KEY;
@@ -16,11 +17,13 @@ module.exports = {
   };
 
 function viewRecipes(req, res) {
+  const dateNow = Date.now();
     Recipe.find({})
     .populate('user')
     .populate('like')
     .exec(function (err,recipes){
-      res.render('index',{ recipes });
+      recipes = recipes.reverse();
+      res.render('index',{ recipes, dateNow });
     })
 }
 
@@ -56,10 +59,12 @@ function deleteRecipe({params: {id}},res) {
   }
 
   function myRecipes(req,res) {
+    const dateNow = Date.now();
     Recipe.find({user: req.user.id})
     .populate('like')
     .exec(function (err,recipes){
-      res.render('recipes/myrecipes', { recipes })
+      recipes = recipes.reverse();
+      res.render('recipes/myrecipes', { recipes, dateNow })
     })
   }
 

@@ -7,7 +7,7 @@
           class="delete-form" method="POST">
         <button class="close-btn btn btn-danger" type="submit">X</button>
        </form>
-              <a href="<%= recipe.link %>" target="_blank" ><img src="<%= recipe.picture %>" class="card-img-top" alt="..."></a><input name="picture" value="<%= recipe.picture %>" hidden="true">
+              <a href="<%= recipe.link %>" target="_blank" ><img src=<%= (Math.abs(recipe.createdAt - new Date(dateNow)) / 36e5) < 1 ? recipe.picture : "../images/yummy.png" %> class="card-img-top" name="picture" alt="..."></a><input name="picture" value="<%= recipe.picture %>" hidden="true">
               <div class="card-body my-card-body">
                   <h5 class="card-title my-card-title" >
                     <div hidden="true">
