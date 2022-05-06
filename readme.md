@@ -1,7 +1,6 @@
 # <p align="center"> Food Base  </p>
 ## <p align="center" style="font-weight:700;"> [Open The App](https://food--base.herokuapp.com) </p>
 ---
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
 
@@ -39,8 +38,6 @@ To run locally:
 
 USAGE
 
-
-
 <p align="center">
   <img width="300" src="./public/images/screen.png">
   <img width="285" src="./public/images/screen2.png">
@@ -48,12 +45,10 @@ USAGE
 
 ## License:
 
-Licensed under the [MIT](https://opensource.org/licenses/MIT) license.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Contributing:
 
 Feel free to contact me to contribute to this project. My contact information is listed below.
 
-## Questions:
-
-## Contact me:  [<img src="./public/images/email.png" width="40" >](mailto:zoneam@gmail.com)  [<img src="./public/images/github.png" width="40" >](https://github.com/zoneam)
+# Contact me:  [<img src="./public/images/email.png" width="40" >](mailto:zoneam@gmail.com)  [<img src="./public/images/github.png" width="40" >](https://github.com/zoneam)  [<img src="./public/images/linkedin.png" width="40" >](https://www.linkedin.com/in/haykmn)
