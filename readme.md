@@ -12,11 +12,13 @@ This application uses [JavaScript](https://developer.mozilla.org/), [Ejs](https:
 
 ## Table of Contents:
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Contributing](#contributing)
-- [Questions](#questions)
+  - [Description](#description)
+  - [Technologies](#technologies)
+  - [Table of Contents:](#table-of-contents)
+  - [Installation:](#installation)
+  - [Usage:](#usage)
+  - [License:](#license)
+  - [Contributing:](#contributing)
 
 ## Installation:
 
@@ -51,4 +53,4 @@ USAGE
 
 Feel free to contact me to contribute to this project. My contact information is listed below.
 
-# Contact me:  [<img src="./public/images/email.png" width="40" >](mailto:zoneam@gmail.com)  [<img src="./public/images/github.png" width="40" >](https://github.com/zoneam)  [<img src="./public/images/linkedin.png" width="40" >](https://www.linkedin.com/in/haykmn)
+  [<img src="./public/images/email.png" width="40" >](mailto:zoneam@gmail.com)  [<img src="./public/images/github.png" width="40" >](https://github.com/zoneam)  [<img src="./public/images/linkedin.png" width="40" >](https://www.linkedin.com/in/haykmn)
