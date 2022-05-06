@@ -1,12 +1,9 @@
 const Recipe = require('../models/recipe');
 const Like = require('../models/like');
-const User = require('../models/user');
-const recipe = require('../models/recipe');
-
 const API_ID = process.env.API_ID;
 const API_KEY = process.env.API_KEY;
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
-
+// Exporting functions
 module.exports = {
     searchRecipes,
     viewRecipes,
@@ -15,7 +12,7 @@ module.exports = {
     myRecipes,
     updateRecepie
   };
-
+// Finding all recipes populating users and likes and rendering
 function viewRecipes(req, res) {
   const dateNow = Date.now();
     Recipe.find({})
@@ -26,19 +23,18 @@ function viewRecipes(req, res) {
       res.render('index',{ recipes, dateNow });
     })
 }
-
+// Fetching Edamam API and rendering
 function searchRecipes(req, res) {
     let foundRecipes = {};
     fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${req.query.search}&app_id=${API_ID}&app_key=${API_KEY}&random=true`)
     .then(res => res.json())
     .then(recipes => {
-      console.log(recipes.hits[0].recipe.images.REGULAR);
         foundRecipes = recipes.hits;
         res.render('recipes/searchview', { foundRecipes });
     })
 }
-
-async function saveRecipe(req, res) {
+// Creating Recipe and Like than saving in database
+function saveRecipe(req, res) {
     req.body.user = req.user.id;
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
@@ -51,14 +47,14 @@ async function saveRecipe(req, res) {
       if (err) return res.redirect('/recipes');
     });
 }
-
+// Deleting recipes by id
 function deleteRecipe({params: {id}},res) {
     Recipe.deleteOne({_id: id},function(err){
       res.redirect('myrecipes');
     });
   }
-
-  function myRecipes(req,res) {
+// Finding my recipes populating with likes schema and rendering
+function myRecipes(req,res) {
     const dateNow = Date.now();
     Recipe.find({user: req.user.id})
     .populate('like')
@@ -66,10 +62,10 @@ function deleteRecipe({params: {id}},res) {
       recipes = recipes.reverse();
       res.render('recipes/myrecipes', { recipes, dateNow })
     })
-  }
-
-  function updateRecepie(req,res){
+}
+// Updating title of recipe
+function updateRecepie(req,res){
     Recipe.findOneAndUpdate({_id: req.params.id}, { name:req.body.name },function(err, recipes){
       res.redirect('/recipes/myrecipes');
   })
-  }
+}

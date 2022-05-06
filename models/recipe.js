@@ -25,11 +25,4 @@ const recipeSchema = new Schema({
   timestamps: true
 });
 
-
-
 module.exports = mongoose.model('Recipe', recipeSchema);
-
-
-// Something.findOne({ _id: id }).exec(function (error, something) {
-//   something.changedName();
-// });
