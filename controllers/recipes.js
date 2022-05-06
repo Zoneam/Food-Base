@@ -12,6 +12,7 @@ module.exports = {
     myRecipes,
     updateRecepie
   };
+  
 // Finding all recipes populating users and likes and rendering
 function viewRecipes(req, res) {
   const dateNow = Date.now();
@@ -39,12 +40,15 @@ function saveRecipe(req, res) {
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
     const newLike = new Like();
-    req.body.like = newLike
+    req.body.like = newLike;
     const recipe = new Recipe(req.body);
     recipe.save(function(err) {
       newLike.recipe = recipe._id;
-      newLike.save()
-      if (err) return res.redirect('/recipes');
+      newLike.save(function(err){
+         if (err) return res.redirect('/recipes');
+        // Hangs because no response
+      });
+     
     });
 }
 // Deleting recipes by id

@@ -15,7 +15,7 @@ if(saveBtn.length){
             el.addEventListener("click", (e) => {
             e.target.disabled = true;
             e.target.innerHTML  = 'Saved';
-            e.target.closest('form').submit();              
+            e.target.closest('form').submit();          
           })
       })
 }
