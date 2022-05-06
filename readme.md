@@ -52,8 +52,8 @@ This application uses [JavaScript](https://developer.mozilla.org/), [Ejs](https:
 ---
 
 <p align="center">
-  <img width="300" src="./public/images/screen.png">
-  <img width="285" src="./public/images/screen2.png">
+  <img width="300" src="./public/images/Screen.png">
+  <img width="285" src="./public/images/Screen2.png">
 </p>
 
 ## License:
