@@ -174,3 +174,18 @@
     .my-heart-icon{
       cursor:default;
     }
+    .login, .logout{
+      margin-right: 44px;
+      border-radius:9px;
+      width:100px;
+    }
+    .navbar-nav > a:hover:not(.active) {
+      color: white;
+      background-color: #424748;
+    }
+    
+    .navbar-nav > a.active {
+      color: white;
+      cursor: default;
+    }
+    
