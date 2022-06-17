@@ -1,10 +1,9 @@
-const  Recipe   = require('../models/recipe');
-const  Like   = require('../models/like');
+const  Like = require('../models/like');
 
 module.exports = {
     like,
   };
- 
+// Liking or unliking recipe
 function like(req, res) {
     Like.findOne({recipe: req.params.id}, function(err,found){
         if(!found.users.includes(req.user.id)){

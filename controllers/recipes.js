@@ -13,6 +13,16 @@ module.exports = {
     updateRecepie
   };
   
+// Fetching Edamam API and rendering
+function searchRecipes(req, res) {
+    let foundRecipes = {};
+    fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${req.query.search}&app_id=${API_ID}&app_key=${API_KEY}&random=true`)
+    .then(res => res.json())
+    .then(recipes => {
+        foundRecipes = recipes.hits;
+        res.render('recipes/searchview', { foundRecipes });
+    })
+}
 // Finding all recipes populating users and likes and rendering
 function viewRecipes(req, res) {
   const dateNow = Date.now();
@@ -22,16 +32,6 @@ function viewRecipes(req, res) {
     .exec(function (err,recipes){
       recipes = recipes.reverse();
       res.render('index',{ recipes, dateNow });
-    })
-}
-// Fetching Edamam API and rendering
-function searchRecipes(req, res) {
-    let foundRecipes = {};
-    fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${req.query.search}&app_id=${API_ID}&app_key=${API_KEY}&random=true`)
-    .then(res => res.json())
-    .then(recipes => {
-        foundRecipes = recipes.hits;
-        res.render('recipes/searchview', { foundRecipes });
     })
 }
 // Creating Recipe and Like than saving in database
@@ -48,7 +48,6 @@ function saveRecipe(req, res) {
          if (err) return res.redirect('/recipes');
         // Hangs because no response
       });
-     
     });
 }
 // Deleting recipes by id
