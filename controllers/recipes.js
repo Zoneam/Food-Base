@@ -35,18 +35,18 @@ function viewRecipes(req, res) {
     })
 }
 // Creating Recipe and Like than saving in database
-function saveRecipe(req, res) {
+async function saveRecipe(req, res) {
     req.body.user = req.user.id;
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
-    const newLike = new Like();
+    const newLike = await new Like();
     req.body.like = newLike;
-    const recipe = new Recipe(req.body);
-    recipe.save(function(err) {
+    const recipe = await new Recipe(req.body);
+    recipe.save( async function(err) {
       newLike.recipe = recipe._id;
-      newLike.save(function(err){
-         if (err) return res.redirect('/recipes');
-        // Hangs because no response
+      await newLike.save(function(err){
+         if (err) return res.send(err);
+        res.redirect('/recipes/myrecipes');
       });
     });
 }
