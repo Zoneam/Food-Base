@@ -3,7 +3,7 @@ const  Like = require('../models/like');
 module.exports = {
     like,
   };
-// Liking or unliking recipe
+// Liking or unlike recipe
 async function like(req, res) {
     try {
       // Find the like object for the specified recipe
