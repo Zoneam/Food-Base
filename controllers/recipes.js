@@ -43,22 +43,6 @@ async function viewRecipes(req, res) {
 
 // Creating Recipe and Like than saving in database
 async function saveRecipe(req, res) {
-    req.body.user = req.user.id;
-    req.body.userName = req.user.name;
-    req.body.userAvatar = req.user.avatar;
-    const newLike = await new Like();
-    req.body.like = newLike;
-    const recipe = await new Recipe(req.body);
-    recipe.save( async function(err) {
-      newLike.recipe = recipe._id;
-      await newLike.save(function(err){
-         if (err) return res.send(err);
-        res.redirect('/recipes/myrecipes');
-      });
-    });
-}
-
-async function saveRecipe(req, res) {
   try {
     // Assign the user's information to the request body
     req.body.user = req.user.id;
